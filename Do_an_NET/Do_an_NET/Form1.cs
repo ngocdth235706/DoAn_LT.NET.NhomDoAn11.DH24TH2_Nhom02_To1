@@ -17,31 +17,27 @@ namespace Do_an_NET
             // Thiết lập chế độ ban đầu: chỉ xem, khóa các ô nhập liệu
 
         }
-
-        // ĐẶT PHƯƠNG THỨC Ở ĐÂY (BÊN TRONG CLASS Form1)
         public void LoadData(string keyword = "")
         {
             string sqlQuery = "SELECT MaXe, TenXe, HangXe, MauXe, GiaXe, SoLuong, CreatedAt FROM xemay";
-            // Cập nhật Chuỗi Kết Nối CSDL của bạn tại đây!
+            // Cập nhật Chuỗi Kết Nối CSDL 
             string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
 
-            // Thêm điều kiện tìm kiếm nếu có từ khóa
+            // Điều kiện tìm kiếm nếu có từ khóa
             if (!string.IsNullOrEmpty(keyword))
             {
                 // Tìm kiếm LIKE trong nhiều cột (TenXe, MaXe, HangXe)
                 sqlQuery += " WHERE TenXe LIKE @Keyword OR MaXe LIKE @Keyword OR HangXe LIKE @Keyword";
             }
+
             // TRUY VẤN LẤY TẤT CẢ DỮ LIỆU ĐỂ HIỂN THỊ
-            // Bỏ mệnh đề WHERE và tham số vì chúng ta lấy toàn bộ dữ liệu
-
-
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
 
-                    // 1. Khởi tạo Adapter và DataTable
+                    // Khởi tạo Adapter và DataTable
                     MySqlDataAdapter adapter = new MySqlDataAdapter(sqlQuery, conn);
                     DataTable dataTable = new DataTable();
 
@@ -50,10 +46,10 @@ namespace Do_an_NET
                     {
                         adapter.SelectCommand.Parameters.AddWithValue("@Keyword", $"%{keyword}%");
                     }
-                    // 2. Lấp đầy (Fill) DataTable bằng dữ liệu từ CSDL
+                    // Lấp đầy (Fill) DataTable bằng dữ liệu từ CSDL
                     adapter.Fill(dataTable);
 
-                    // 3. Gán DataTable làm nguồn dữ liệu cho DataGridView
+                    // Gán DataTable làm nguồn dữ liệu cho DataGridView
                     dgvDanhSachXe.DataSource = dataTable;
 
                     // Tự động điều chỉnh độ rộng cột cho phù hợp
@@ -146,18 +142,17 @@ namespace Do_an_NET
         // CÁC SỰ KIỆN CỦA FORM VÀ CONTROLS
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Gọi hàm để tải dữ liệu ngay khi Form được mở
             LoadData();
+
             // Để kẻ ô full, ta đặt là False để ngăn DataGridView tạo hàng trống cuối cùng
-            // Mặc định, nếu bạn không muốn người dùng nhập, nên đặt là False.
+            // Mặc định, nếu không muốn người dùng nhập, nên đặt là False.
             dgvDanhSachXe.AllowUserToAddRows = false;
+
             // Tự động điều chỉnh độ cao hàng để lấp đầy DataGridView
-            // Điều này buộc các hàng dữ liệu hiện tại phải giãn ra để lấp đầy không gian trống.
-            // CHÚ THÍCH: Đây là thuộc tính quan trọng nhất để lấp đầy khoảng trắng!
             dgvDanhSachXe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            // Chỉnh chế độ chia cột (Nếu chưa có)
-            // Đã có trong code cũ của bạn, đảm bảo DataGridView lấp đầy chiều ngang.
+            // Chỉnh chế độ chia cột 
+            // Đảm bảo DataGridView lấp đầy chiều ngang.
             dgvDanhSachXe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void dgvDanhSachXe_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -174,7 +169,7 @@ namespace Do_an_NET
                 txtHangXe.Text = row.Cells["HangXe"].Value.ToString();
                 txtMauXe.Text = row.Cells["MauXe"].Value.ToString();
 
-                // Sử dụng Convert.ToDecimal/ToString() để đảm bảo định dạng số không bị lỗi
+                // Sử dụng ToString() để đảm bảo định dạng số không bị lỗi
                 txtGiaXe.Text = row.Cells["GiaXe"].Value.ToString();
                 txtSoLuong.Text = row.Cells["SoLuong"].Value.ToString();
 
@@ -248,19 +243,18 @@ namespace Do_an_NET
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            // 1. Xóa nội dung trong tất cả các TextBox
+            // Xóa nội dung trong tất cả các TextBox
             ClearTextBoxes();
 
-            // 2. Đặt lại trạng thái về chế độ xem (không Thêm mới/Cập nhật)
+            // Đặt lại trạng thái về chế độ xem (không Thêm mới/Cập nhật)
             isAddingNew = false;
             SetEditMode(false);
 
-            // 3. Tải lại toàn bộ dữ liệu (không có từ khóa tìm kiếm)
-            // SỬA: Dùng hàm LoadData() mới thay vì LoadDataFromxemay() cũ
+            // Tải lại toàn bộ dữ liệu (không có từ khóa tìm kiếm)
             LoadData();
         }
 
-        // Hàm cho nút Tải lại (Nếu bạn đã đặt tên là btnTaiLai)
+        // Hàm cho nút Tải lại 
         private void btnTaiLai_Click(object sender, EventArgs e)
         {
             txtTimKiem.Text = ""; // Xóa nội dung tìm kiếm
