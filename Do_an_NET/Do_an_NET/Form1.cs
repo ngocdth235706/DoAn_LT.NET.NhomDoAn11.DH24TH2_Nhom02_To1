@@ -15,7 +15,7 @@ namespace Do_an_NET
         {
             InitializeComponent();
             // Thiết lập chế độ ban đầu: chỉ xem, khóa các ô nhập liệu
-            
+
         }
 
         // ĐẶT PHƯƠNG THỨC Ở ĐÂY (BÊN TRONG CLASS Form1)
@@ -33,7 +33,7 @@ namespace Do_an_NET
             }
             // TRUY VẤN LẤY TẤT CẢ DỮ LIỆU ĐỂ HIỂN THỊ
             // Bỏ mệnh đề WHERE và tham số vì chúng ta lấy toàn bộ dữ liệu
-          
+
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -148,6 +148,17 @@ namespace Do_an_NET
         {
             // Gọi hàm để tải dữ liệu ngay khi Form được mở
             LoadData();
+            // Để kẻ ô full, ta đặt là False để ngăn DataGridView tạo hàng trống cuối cùng
+            // Mặc định, nếu bạn không muốn người dùng nhập, nên đặt là False.
+            dgvDanhSachXe.AllowUserToAddRows = false;
+            // Tự động điều chỉnh độ cao hàng để lấp đầy DataGridView
+            // Điều này buộc các hàng dữ liệu hiện tại phải giãn ra để lấp đầy không gian trống.
+            // CHÚ THÍCH: Đây là thuộc tính quan trọng nhất để lấp đầy khoảng trắng!
+            dgvDanhSachXe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Chỉnh chế độ chia cột (Nếu chưa có)
+            // Đã có trong code cũ của bạn, đảm bảo DataGridView lấp đầy chiều ngang.
+            dgvDanhSachXe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void dgvDanhSachXe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -272,6 +283,21 @@ namespace Do_an_NET
             {
                 LoadData(keyword); // Tìm kiếm theo từ khóa
             }
+        }
+
+        private void dgvDanhSachXe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
