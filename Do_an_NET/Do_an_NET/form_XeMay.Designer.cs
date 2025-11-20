@@ -1,6 +1,6 @@
 ﻿namespace Do_an_NET
 {
-    partial class Form1
+    partial class form_XeMay
     {
         /// <summary>
         ///  Required designer variable.

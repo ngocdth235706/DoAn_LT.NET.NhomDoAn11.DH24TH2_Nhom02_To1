@@ -4,14 +4,14 @@ using System.Windows.Forms;
 
 namespace Do_an_NET
 {
-    public partial class Form1 : Form
+    public partial class form_XeMay : Form
     {
         // Biến trạng thái để xác định đang Thêm mới hay Cập nhật
         private bool isAddingNew = false;
 
         // Chuỗi kết nối cố định
         private readonly string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
-        public Form1()
+        public form_XeMay()
         {
             InitializeComponent();
             // Thiết lập chế độ ban đầu: chỉ xem, khóa các ô nhập liệu
