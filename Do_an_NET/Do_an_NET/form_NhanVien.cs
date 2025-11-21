@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Do_an_NET
 {
-    public partial class Form2 : Form
+    public partial class form_NhanVien : Form
     {
-        public Form2()
+        public form_NhanVien()
         {
             InitializeComponent();
         }

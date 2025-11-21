@@ -34,7 +34,7 @@
             txtMaXe = new TextBox();
             txtTenXe = new TextBox();
             txtHangXe = new TextBox();
-            txtMauXe = new TextBox();
+            cmbMauXe = new ComboBox();
             txtGiaXe = new TextBox();
             txtSoLuong = new TextBox();
             btnThem = new Button();
@@ -110,10 +110,12 @@
             // 
             // txtMauXe
             // 
-            txtMauXe.Location = new Point(139, 90);
-            txtMauXe.Name = "txtMauXe";
-            txtMauXe.Size = new Size(213, 31);
-            txtMauXe.TabIndex = 7;
+            cmbMauXe.FormattingEnabled = true;
+            cmbMauXe.Location = new Point(139, 90);
+            cmbMauXe.Name = "cmbMauXe";
+            cmbMauXe.Size = new Size(213, 33); 
+            cmbMauXe.TabIndex = 7;
+            cmbMauXe.DropDownStyle = ComboBoxStyle.DropDown;
             // 
             // txtGiaXe
             // 
@@ -294,7 +296,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtSoLuong);
             groupBox1.Controls.Add(txtGiaXe);
-            groupBox1.Controls.Add(txtMauXe);
+            groupBox1.Controls.Add(cmbMauXe);
             groupBox1.Controls.Add(txtHangXe);
             groupBox1.Controls.Add(txtTenXe);
             groupBox1.Controls.Add(txtMaXe);
@@ -342,7 +344,7 @@
         private TextBox txtMaXe;
         private TextBox txtTenXe;
         private TextBox txtHangXe;
-        private TextBox txtMauXe;
+        private ComboBox cmbMauXe;
         private TextBox txtGiaXe;
         private TextBox txtSoLuong;
         private Button btnThem;

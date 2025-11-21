@@ -1,6 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Text.RegularExpressions; // Dùng cho việc kiểm tra định dạng chữ
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Do_an_NET
 {
@@ -16,6 +19,42 @@ namespace Do_an_NET
             InitializeComponent();
             // Thiết lập chế độ ban đầu: chỉ xem, khóa các ô nhập liệu
 
+        }
+
+        // ===============================================
+        // TẢI DANH SÁCH MÀU XE ĐỘC NHẤT
+        // ===============================================
+        public void LoadMauXeData()
+        {
+            // Truy vấn lấy danh sách màu sắc duy nhất, không rỗng, và sắp xếp theo bảng chữ cái (ASC)
+            string sqlQuery = "SELECT DISTINCT MauXe FROM xemay WHERE MauXe IS NOT NULL AND MauXe != '' ORDER BY MauXe ASC";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(sqlQuery, conn);
+                    DataTable dtMauXe = new DataTable();
+                    adapter.Fill(dtMauXe);
+
+                    // Xóa dữ liệu cũ và gán dữ liệu mới cho ComboBox
+                    cmbMauXe.DataSource = null;
+
+                    // Lấy danh sách chuỗi (string) từ DataTable
+                    List<string> mauXeList = dtMauXe.AsEnumerable()
+                                                    .Select(row => row.Field<string>("MauXe"))
+                                                    .ToList();
+
+                    // Gán List vào ComboBox
+                    cmbMauXe.DataSource = mauXeList;
+                    cmbMauXe.SelectedIndex = -1; // Không chọn mục nào ban đầu
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("LỖI TẢI DANH SÁCH MÀU XE: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         public void LoadData(string keyword = "")
         {
@@ -68,7 +107,7 @@ namespace Do_an_NET
             txtMaXe.Text = "";
             txtTenXe.Text = "";
             txtHangXe.Text = "";
-            txtMauXe.Text = "";
+            cmbMauXe.Text = "";
             txtGiaXe.Text = "";
             txtSoLuong.Text = "";
         }
@@ -77,7 +116,7 @@ namespace Do_an_NET
             // Bật/tắt các ô nhập liệu
             txtTenXe.ReadOnly = !isEnabled;
             txtHangXe.ReadOnly = !isEnabled;
-            txtMauXe.ReadOnly = !isEnabled;
+            cmbMauXe.Enabled = isEnabled;
             txtGiaXe.ReadOnly = !isEnabled;
             txtSoLuong.ReadOnly = !isEnabled;
 
@@ -106,7 +145,7 @@ namespace Do_an_NET
                         cmd.Parameters.AddWithValue("@MaXe", txtMaXe.Text);
                         cmd.Parameters.AddWithValue("@TenXe", txtTenXe.Text);
                         cmd.Parameters.AddWithValue("@HangXe", txtHangXe.Text);
-                        cmd.Parameters.AddWithValue("@MauXe", txtMauXe.Text);
+                        cmd.Parameters.AddWithValue("@MauXe", cmbMauXe.Text);
 
                         // Chuyển đổi sang kiểu số, dùng TryParse để kiểm tra lỗi nhập liệu
                         if (!decimal.TryParse(txtGiaXe.Text, out decimal giaXe))
@@ -143,17 +182,18 @@ namespace Do_an_NET
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadData();
+            LoadMauXeData();
 
             // Để kẻ ô full, ta đặt là False để ngăn DataGridView tạo hàng trống cuối cùng
             // Mặc định, nếu không muốn người dùng nhập, nên đặt là False.
             dgvDanhSachXe.AllowUserToAddRows = false;
 
-            // Tự động điều chỉnh độ cao hàng để lấp đầy DataGridView
-            dgvDanhSachXe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
             // Chỉnh chế độ chia cột 
             // Đảm bảo DataGridView lấp đầy chiều ngang.
             dgvDanhSachXe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Thiết lập thanh cuộn cho DataGridView
+            dgvDanhSachXe.ScrollBars = ScrollBars.Vertical;
         }
         private void dgvDanhSachXe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -167,7 +207,7 @@ namespace Do_an_NET
                 txtMaXe.Text = row.Cells["MaXe"].Value.ToString();
                 txtTenXe.Text = row.Cells["TenXe"].Value.ToString();
                 txtHangXe.Text = row.Cells["HangXe"].Value.ToString();
-                txtMauXe.Text = row.Cells["MauXe"].Value.ToString();
+                cmbMauXe.Text = row.Cells["MauXe"].Value.ToString();
 
                 // Sử dụng ToString() để đảm bảo định dạng số không bị lỗi
                 txtGiaXe.Text = row.Cells["GiaXe"].Value.ToString();
@@ -188,9 +228,27 @@ namespace Do_an_NET
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaXe.Text) || string.IsNullOrEmpty(txtTenXe.Text))
+            string mauXeValue = cmbMauXe.Text.Trim();
+
+            // Thêm kiểm tra cho Hãng Xe và Màu Xe
+            if (string.IsNullOrEmpty(txtMaXe.Text) ||
+                string.IsNullOrEmpty(txtTenXe.Text) ||
+                string.IsNullOrEmpty(txtHangXe.Text) ||
+                string.IsNullOrEmpty(mauXeValue))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ Mã Xe và Tên Xe.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Regex.IsMatch(cmbMauXe.Text, @"\d"))
+            {
+                MessageBox.Show("Màu Xe không được chứa ký tự số. Vui lòng nhập đúng định dạng chữ (ví dụ: Đỏ, Xanh Lá Cây...).", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtGiaXe.Text, out _) || !int.TryParse(txtSoLuong.Text, out _))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng số cho Giá Xe và Số Lượng.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -211,6 +269,10 @@ namespace Do_an_NET
             }
 
             ExecuteNonQuery(sql, message);
+
+            LoadMauXeData();
+
+            cmbMauXe.MaxDropDownItems = 15;
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
