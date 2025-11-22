@@ -11,8 +11,8 @@ namespace Do_an_NET
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new form_XeMay());
-            // Application.Run(new form_NhanVien());
+            // Application.Run(new form_XeMay());
+            Application.Run(new form_NhanVien());
         }
     }
 }
