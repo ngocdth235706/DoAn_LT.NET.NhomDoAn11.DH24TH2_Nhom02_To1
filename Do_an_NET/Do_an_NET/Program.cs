@@ -12,7 +12,8 @@ namespace Do_an_NET
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             // Application.Run(new form_XeMay());
-            Application.Run(new form_NhanVien());
+            Application.Run(new form_KhachHang());
+            // Application.Run(new form_NhanVien());
         }
     }
 }

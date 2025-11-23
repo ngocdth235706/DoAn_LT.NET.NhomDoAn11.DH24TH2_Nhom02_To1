@@ -72,6 +72,7 @@
             dgvDanhSachNhanVien.RowHeadersWidth = 62;
             dgvDanhSachNhanVien.Size = new Size(1296, 318);
             dgvDanhSachNhanVien.TabIndex = 1;
+            dgvDanhSachNhanVien.CellClick += dgvDanhSachNhanVien_CellClick;
             // 
             // txtTimKiem
             // 
@@ -90,6 +91,7 @@
             btnTim.TabIndex = 3;
             btnTim.Text = "Tìm";
             btnTim.UseVisualStyleBackColor = false;
+            btnTim.Click += btnTim_Click;
             // 
             // btnTaiLai
             // 
@@ -100,6 +102,7 @@
             btnTaiLai.TabIndex = 4;
             btnTaiLai.Text = "Tải Lại";
             btnTaiLai.UseVisualStyleBackColor = true;
+            btnTaiLai.Click += btnTaiLai_Click;
             // 
             // labelTimKiem
             // 
@@ -188,6 +191,7 @@
             btnThem.TabIndex = 33;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // btnLuu
             // 
@@ -199,6 +203,7 @@
             btnLuu.TabIndex = 34;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnCapNhat
             // 
@@ -210,6 +215,7 @@
             btnCapNhat.TabIndex = 35;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = false;
+            btnCapNhat.Click += btnCapNhat_Click;
             // 
             // btnXoa
             // 
@@ -221,6 +227,7 @@
             btnXoa.TabIndex = 36;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnHuy
             // 
@@ -232,6 +239,7 @@
             btnHuy.TabIndex = 37;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
             // 
             // lblNgaysinh
             // 
@@ -254,7 +262,6 @@
             lblMaNV.Size = new Size(80, 25);
             lblMaNV.TabIndex = 39;
             lblMaNV.Text = "Mã NV :";
-            
             // 
             // lblSDT
             // 
@@ -332,6 +339,7 @@
             btnQuayLai.TabIndex = 46;
             btnQuayLai.Text = "Quay lại";
             btnQuayLai.UseVisualStyleBackColor = false;
+            btnQuayLai.Click += btnQuayLai_Click;
             // 
             // groupBoxDanhSachNhanVien
             // 
@@ -393,21 +401,7 @@
             Controls.Add(txtTimKiem);
             Name = "form_NhanVien";
             Text = "Quản lý Nhân Viên";
-
-            // ===============================================
-            // GÁN SỰ KIỆN CHO CÁC CONTROL
-            // ===============================================
             Load += form_NhanVien_Load;
-            btnThem.Click += btnThem_Click;
-            btnLuu.Click += btnLuu_Click;
-            btnCapNhat.Click += btnCapNhat_Click;
-            btnXoa.Click += btnXoa_Click;
-            btnHuy.Click += btnHuy_Click;
-            btnTaiLai.Click += btnTaiLai_Click;
-            btnQuayLai.Click += btnQuayLai_Click;
-            btnTim.Click += btnTim_Click;
-            dgvDanhSachNhanVien.CellClick += dgvDanhSachNhanVien_CellClick;
-
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachNhanVien).EndInit();
             groupBoxDanhSachNhanVien.ResumeLayout(false);
             groupBoxThongtinnhanvien.ResumeLayout(false);
