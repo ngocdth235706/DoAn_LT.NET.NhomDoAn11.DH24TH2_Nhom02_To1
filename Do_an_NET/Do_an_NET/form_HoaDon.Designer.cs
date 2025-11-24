@@ -31,20 +31,20 @@
             lblQUANLYHOADON = new Label();
             dgvDanhSachHoaDon = new DataGridView();
             txtTimKiem = new TextBox();
-            labelTimKiem = new Label();
+            lblTimKiem = new Label();
             btnTim = new Button();
             btnTaiLai = new Button();
             txtMaHD = new TextBox();
             txtNgayban = new TextBox();
             txtMaNV = new TextBox();
             txtGhichu = new TextBox();
-            cmbKhachhang = new ComboBox(); // ĐÃ ĐỔI TỪ TEXTBOX SANG COMBOBOX
+            cmbKhachhang = new ComboBox();
             btnThem = new Button();
             btnLuu = new Button();
             btnQuayLai = new Button();
             btnHuy = new Button();
             btnXoa = new Button();
-            button1 = new Button(); // Mở chi tiết HĐ
+            btnMoCTHoaDon = new Button();
             btnTimkhach = new Button();
             btnThemkhach = new Button();
             lblMaHD = new Label();
@@ -64,7 +64,7 @@
             lblQUANLYHOADON.AutoSize = true;
             lblQUANLYHOADON.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblQUANLYHOADON.ForeColor = Color.RoyalBlue;
-            lblQUANLYHOADON.Location = new Point(484, 41);
+            lblQUANLYHOADON.Location = new Point(388, 40);
             lblQUANLYHOADON.Name = "lblQUANLYHOADON";
             lblQUANLYHOADON.Size = new Size(321, 45);
             lblQUANLYHOADON.TabIndex = 25;
@@ -79,6 +79,7 @@
             dgvDanhSachHoaDon.RowHeadersWidth = 62;
             dgvDanhSachHoaDon.Size = new Size(1173, 304);
             dgvDanhSachHoaDon.TabIndex = 26;
+            dgvDanhSachHoaDon.CellClick += dgvDanhSachHoaDon_CellClick;
             // 
             // txtTimKiem
             // 
@@ -87,15 +88,15 @@
             txtTimKiem.Size = new Size(722, 31);
             txtTimKiem.TabIndex = 27;
             // 
-            // labelTimKiem
+            // lblTimKiem
             // 
-            labelTimKiem.AutoSize = true;
-            labelTimKiem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTimKiem.Location = new Point(49, 120);
-            labelTimKiem.Name = "labelTimKiem";
-            labelTimKiem.Size = new Size(95, 25);
-            labelTimKiem.TabIndex = 28;
-            labelTimKiem.Text = "Tìm kiếm:";
+            lblTimKiem.AutoSize = true;
+            lblTimKiem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTimKiem.Location = new Point(49, 120);
+            lblTimKiem.Name = "lblTimKiem";
+            lblTimKiem.Size = new Size(95, 25);
+            lblTimKiem.TabIndex = 28;
+            lblTimKiem.Text = "Tìm kiếm:";
             // 
             // btnTim
             // 
@@ -107,6 +108,7 @@
             btnTim.TabIndex = 29;
             btnTim.Text = "Tìm";
             btnTim.UseVisualStyleBackColor = false;
+            btnTim.Click += btnTim_Click;
             // 
             // btnTaiLai
             // 
@@ -117,6 +119,7 @@
             btnTaiLai.TabIndex = 30;
             btnTaiLai.Text = "Tải Lại";
             btnTaiLai.UseVisualStyleBackColor = true;
+            btnTaiLai.Click += btnTaiLai_Click;
             // 
             // txtMaHD
             // 
@@ -153,8 +156,6 @@
             cmbKhachhang.Name = "cmbKhachhang";
             cmbKhachhang.Size = new Size(301, 33);
             cmbKhachhang.TabIndex = 35;
-            // ĐÃ SỬA LỖI: Dùng DropDown để cho phép vừa chọn, vừa gõ Khách hàng mới
-            cmbKhachhang.DropDownStyle = ComboBoxStyle.DropDown;
             // 
             // btnThem
             // 
@@ -166,6 +167,7 @@
             btnThem.TabIndex = 36;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // btnLuu
             // 
@@ -177,6 +179,7 @@
             btnLuu.TabIndex = 37;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnQuayLai
             // 
@@ -188,6 +191,7 @@
             btnQuayLai.TabIndex = 47;
             btnQuayLai.Text = "Quay lại";
             btnQuayLai.UseVisualStyleBackColor = false;
+            btnQuayLai.Click += btnQuayLai_Click;
             // 
             // btnHuy
             // 
@@ -199,6 +203,7 @@
             btnHuy.TabIndex = 48;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
             // 
             // btnXoa
             // 
@@ -210,18 +215,19 @@
             btnXoa.TabIndex = 49;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
-            // button1
+            // btnMoCTHoaDon
             // 
-            button1.BackColor = Color.PaleTurquoise;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(436, 682);
-            button1.Name = "button1";
-            button1.Size = new Size(153, 58);
-            button1.TabIndex = 50;
-            button1.Text = "Mở chi tiết HĐ";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnMoCTHoaDon.BackColor = Color.PaleTurquoise;
+            btnMoCTHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMoCTHoaDon.Location = new Point(436, 682);
+            btnMoCTHoaDon.Name = "btnMoCTHoaDon";
+            btnMoCTHoaDon.Size = new Size(153, 58);
+            btnMoCTHoaDon.TabIndex = 50;
+            btnMoCTHoaDon.Text = "Mở chi tiết HĐ";
+            btnMoCTHoaDon.UseVisualStyleBackColor = false;
+            btnMoCTHoaDon.Click += button1_Click;
             // 
             // btnTimkhach
             // 
@@ -234,6 +240,7 @@
             btnTimkhach.TabIndex = 51;
             btnTimkhach.Text = "Tìm khách";
             btnTimkhach.UseVisualStyleBackColor = false;
+            btnTimkhach.Click += btnTimkhach_Click;
             // 
             // btnThemkhach
             // 
@@ -246,6 +253,7 @@
             btnThemkhach.TabIndex = 52;
             btnThemkhach.Text = "Thêm khách";
             btnThemkhach.UseVisualStyleBackColor = false;
+            btnThemkhach.Click += btnThemkhach_Click;
             // 
             // lblMaHD
             // 
@@ -345,7 +353,7 @@
             ClientSize = new Size(1228, 770);
             Controls.Add(groupBoxThongtinhoadon);
             Controls.Add(groupBoxDanhsachhoadon);
-            Controls.Add(button1);
+            Controls.Add(btnMoCTHoaDon);
             Controls.Add(btnXoa);
             Controls.Add(btnHuy);
             Controls.Add(btnQuayLai);
@@ -353,26 +361,12 @@
             Controls.Add(btnThem);
             Controls.Add(btnTaiLai);
             Controls.Add(btnTim);
-            Controls.Add(labelTimKiem);
+            Controls.Add(lblTimKiem);
             Controls.Add(txtTimKiem);
             Controls.Add(lblQUANLYHOADON);
             Name = "form_HoaDon";
             Text = "Quản lý Hóa Đơn";
-
-            // Liên kết các sự kiện 
             Load += form_HoaDon_Load;
-            dgvDanhSachHoaDon.CellClick += dgvDanhSachHoaDon_CellClick;
-            btnThem.Click += btnThem_Click;
-            btnLuu.Click += btnLuu_Click;
-            btnXoa.Click += btnXoa_Click;
-            btnHuy.Click += btnHuy_Click;
-            btnQuayLai.Click += btnQuayLai_Click;
-            btnTim.Click += btnTim_Click;
-            btnTaiLai.Click += btnTaiLai_Click;
-            button1.Click += button1_Click;
-            btnTimkhach.Click += btnTimkhach_Click;
-            btnThemkhach.Click += btnThemkhach_Click;
-
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachHoaDon).EndInit();
             groupBoxDanhsachhoadon.ResumeLayout(false);
             groupBoxThongtinhoadon.ResumeLayout(false);
@@ -388,7 +382,7 @@
         private Label lblQUANLYHOADON;
         public DataGridView dgvDanhSachHoaDon;
         private TextBox txtTimKiem;
-        private Label labelTimKiem;
+        private Label lblTimKiem;
         private Button btnTim;
         private Button btnTaiLai;
         private TextBox txtMaHD;
@@ -401,7 +395,7 @@
         private Button btnQuayLai;
         private Button btnHuy;
         private Button btnXoa;
-        private Button button1; // Mở chi tiết HĐ
+        private Button btnMoCTHoaDon; // Mở chi tiết HĐ
         private Button btnTimkhach;
         private Button btnThemkhach;
         private Label lblMaHD;
@@ -411,5 +405,6 @@
         private Label lblGhichu;
         private GroupBox groupBoxDanhsachhoadon;
         private GroupBox groupBoxThongtinhoadon;
+        
     }
 }

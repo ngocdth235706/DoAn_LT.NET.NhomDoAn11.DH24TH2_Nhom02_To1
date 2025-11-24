@@ -1,20 +1,23 @@
-namespace Do_an_NET
+﻿using System;
+using System.Windows.Forms;
+
+namespace Do_an_NET // Thay thế bằng Namespace của bạn
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            // Application.Run(new form_XeMay());
-            // Application.Run(new form_KhachHang());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // Dòng quan trọng: Form nào được khởi động đầu tiên
+            // Nếu bạn muốn chạy form_HoaDon đầu tiên:
+            // Application.Run(new form_HoaDon());
             // Application.Run(new form_NhanVien());
-            Application.Run(new form_HoaDon());
+            Application.Run(new form_KhachHang());
+            // Hoặc, nếu bạn có form Đăng nhập/Menu chính:
+            // Application.Run(new form_DangNhap());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Text.RegularExpressions; // Dùng cho việc kiểm tra định dạng chữ
@@ -12,13 +13,14 @@ namespace Do_an_NET
         // Biến trạng thái để xác định đang Thêm mới hay Cập nhật
         private bool isAddingNew = false;
 
-        // Chuỗi kết nối cố định
+        // Chuỗi kết nối cố định (Biến thành viên)
         private readonly string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
+
+        public string SelectedMaXe { get; private set; }
         public form_XeMay()
         {
             InitializeComponent();
             // Thiết lập chế độ ban đầu: chỉ xem, khóa các ô nhập liệu
-
         }
 
         // ===============================================
@@ -43,8 +45,8 @@ namespace Do_an_NET
 
                     // Lấy danh sách chuỗi (string) từ DataTable
                     List<string> mauXeList = dtMauXe.AsEnumerable()
-                                                    .Select(row => row.Field<string>("MauXe"))
-                                                    .ToList();
+                                                     .Select(row => row.Field<string>("MauXe"))
+                                                     .ToList();
 
                     // Gán List vào ComboBox
                     cmbMauXe.DataSource = mauXeList;
@@ -59,8 +61,7 @@ namespace Do_an_NET
         public void LoadData(string keyword = "")
         {
             string sqlQuery = "SELECT MaXe, TenXe, HangXe, MauXe, GiaXe, SoLuong, CreatedAt FROM xemay";
-            // Cập nhật Chuỗi Kết Nối CSDL 
-            string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
+            // ĐÃ XÓA DÒNG NÀY: string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
 
             // Điều kiện tìm kiếm nếu có từ khóa
             if (!string.IsNullOrEmpty(keyword))
@@ -70,7 +71,7 @@ namespace Do_an_NET
             }
 
             // TRUY VẤN LẤY TẤT CẢ DỮ LIỆU ĐỂ HIỂN THỊ
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString)) // Dùng biến thành viên
             {
                 try
                 {
@@ -179,7 +180,7 @@ namespace Do_an_NET
             }
         }
         // CÁC SỰ KIỆN CỦA FORM VÀ CONTROLS
-        private void Form1_Load(object sender, EventArgs e)
+        private void form_XeMay_Load(object sender, EventArgs e)
         {
             LoadData();
             LoadMauXeData();
@@ -326,7 +327,7 @@ namespace Do_an_NET
 
         private void label8_Click(object sender, EventArgs e)
         {
-
+            // (Không có logic)
         }
         private void btnTim_Click(object sender, EventArgs e)
         {
@@ -343,18 +344,32 @@ namespace Do_an_NET
 
         private void dgvDanhSachXe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // (Không có logic)
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
+            // (Không có logic)
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
+            // (Không có logic)
+        }
+        private void btnChonXe_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaXe.Text))
+            {
+                MessageBox.Show("Vui lòng chọn một chiếc xe trong danh sách.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // 1. Lưu Mã Xe đã chọn
+            SelectedMaXe = txtMaXe.Text;
+
+            // 2. Đóng Form với DialogResult.OK
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
-        

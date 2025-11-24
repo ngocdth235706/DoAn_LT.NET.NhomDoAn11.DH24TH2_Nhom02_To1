@@ -8,16 +8,19 @@ namespace Do_an_NET
     public partial class form_HoaDon : Form
     {
         // 1. KHAI BÁO BIẾN & CHUỖI KẾT NỐI
+        // (Giữ nguyên chuỗi kết nối của bạn)
         private readonly string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
 
         // Trạng thái Form: true = Đang Thêm mới, false = Bình thường
         private bool isAddingNew = false;
 
+        // Constructor: Chỉ giữ lại một phiên bản
         public form_HoaDon()
         {
             InitializeComponent();
         }
 
+        // Sự kiện Load Form: Chỉ giữ lại một phiên bản
         private void form_HoaDon_Load(object sender, EventArgs e)
         {
             SetupDataGridView();
@@ -31,6 +34,7 @@ namespace Do_an_NET
 
         // =======================================================
         // PHƯƠNG THỨC CHUNG & CÀI ĐẶT
+        // (Giữ nguyên không thay đổi)
         // =======================================================
 
         private void SetupDataGridView()
@@ -59,12 +63,12 @@ namespace Do_an_NET
             txtMaNV.ReadOnly = !isEnabled;
             txtNgayban.ReadOnly = !isEnabled;
             txtGhichu.ReadOnly = !isEnabled;
-            cmbKhachhang.Enabled = isEnabled; 
+            cmbKhachhang.Enabled = isEnabled;
 
             // Buttons
             btnThem.Enabled = !isEnabled;
             btnLuu.Enabled = isEnabled;
-            button1.Enabled = !isEnabled; 
+
             btnXoa.Enabled = !isEnabled;
             btnHuy.Enabled = isEnabled;
             btnQuayLai.Enabled = !isEnabled;
@@ -81,6 +85,7 @@ namespace Do_an_NET
 
         // =======================================================
         // TẢI DỮ LIỆU & LẤY THÔNG TIN KHÁCH HÀNG
+        // (Giữ nguyên không thay đổi)
         // =======================================================
 
         /// <summary>
@@ -151,20 +156,17 @@ namespace Do_an_NET
         /// <returns>MaKH mới được tạo (dưới dạng chuỗi), hoặc null nếu hủy.</returns>
         private string SaveNewKhachHang(string tenKH)
         {
-            // Kiểm tra nếu đã tồn tại, hàm gọi sẽ tự kiểm tra trước rồi mới gọi hàm này.
-
+            // Hàm này vẫn giữ nguyên, logic của bạn hoạt động tốt.
             if (MessageBox.Show($"Khách hàng '{tenKH}' chưa tồn tại. Bạn có muốn thêm mới Khách hàng này ngay bây giờ không? (Lưu ý: Chỉ thêm Tên Khách hàng)",
-                                "Xác nhận thêm Khách hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    "Xác nhận thêm Khách hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         connection.Open();
-                        // Hàm tạo MaKH tự động dạng chuỗi (ví dụ: KH0001)
                         string newMaKH = GenerateNewMaKH(connection);
 
-                        // Nếu bạn dùng ID tự tăng (INT), bỏ qua hàm GenerateNewMaKH và sửa SQL
                         string sql = "INSERT INTO KHACHHANG (MaKH, TenKH) VALUES (@MaKH, @TenKH)";
                         MySqlCommand command = new MySqlCommand(sql, connection);
                         command.Parameters.AddWithValue("@MaKH", newMaKH);
@@ -172,7 +174,6 @@ namespace Do_an_NET
 
                         command.ExecuteNonQuery();
 
-                        // Tải lại danh sách sau khi thêm mới
                         LoadKhachHangIntoComboBox();
 
                         MessageBox.Show($"Đã thêm Khách hàng mới: {newMaKH} - {tenKH}", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -193,11 +194,10 @@ namespace Do_an_NET
 
         /// <summary>
         /// Hàm giả lập tạo Mã Khách hàng mới (ví dụ: KH0001, KH0002)
-        /// Cần điều chỉnh theo logic tạo ID thực tế của bạn
         /// </summary>
         private string GenerateNewMaKH(MySqlConnection connection)
         {
-            // Logic đơn giản: Tìm MaKH lớn nhất và tăng lên 1
+            // Logic của bạn để tạo MaKH
             string maxMaKH = "";
             string selectSql = "SELECT MaKH FROM KHACHHANG ORDER BY MaKH DESC LIMIT 1";
             MySqlCommand selectCommand = new MySqlCommand(selectSql, connection);
@@ -213,7 +213,6 @@ namespace Do_an_NET
                 return "KH0001";
             }
 
-            // Lấy phần số và tăng lên 1
             if (int.TryParse(maxMaKH.Substring(2), out int number))
             {
                 return "KH" + (number + 1).ToString("D4"); // D4 đảm bảo 4 chữ số (KH0002)
@@ -256,14 +255,14 @@ namespace Do_an_NET
                     dgvDanhSachHoaDon.DataSource = dt;
 
                     // Tùy chỉnh HeaderText và FillWeight
-                    dgvDanhSachHoaDon.Columns["MaHD"].HeaderText = "Mã HĐ";
-                    dgvDanhSachHoaDon.Columns["NgayBan"].HeaderText = "Ngày Bán";
-                    dgvDanhSachHoaDon.Columns["MaNV"].HeaderText = "Mã NV";
-                    dgvDanhSachHoaDon.Columns["KhachHang"].HeaderText = "Tên Khách Hàng";
-                    dgvDanhSachHoaDon.Columns["GhiChu"].HeaderText = "Ghi Chú";
-
-                    if (dgvDanhSachHoaDon.Columns.Count > 0)
+                    if (dgvDanhSachHoaDon.Columns.Contains("MaHD"))
                     {
+                        dgvDanhSachHoaDon.Columns["MaHD"].HeaderText = "Mã HĐ";
+                        dgvDanhSachHoaDon.Columns["NgayBan"].HeaderText = "Ngày Bán";
+                        dgvDanhSachHoaDon.Columns["MaNV"].HeaderText = "Mã NV";
+                        dgvDanhSachHoaDon.Columns["KhachHang"].HeaderText = "Tên Khách Hàng";
+                        dgvDanhSachHoaDon.Columns["GhiChu"].HeaderText = "Ghi Chú";
+
                         dgvDanhSachHoaDon.Columns["MaHD"].FillWeight = 50;
                         dgvDanhSachHoaDon.Columns["NgayBan"].FillWeight = 80;
                         dgvDanhSachHoaDon.Columns["MaNV"].FillWeight = 50;
@@ -280,7 +279,7 @@ namespace Do_an_NET
 
 
         // =======================================================
-        // SỰ KIỆN BUTTON CLICK (ĐÃ SỬA btnLuu_Click)
+        // SỰ KIỆN BUTTON CLICK (Đã loại bỏ CS0111)
         // =======================================================
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -355,8 +354,6 @@ namespace Do_an_NET
             }
         }
 
-        // ... (Các hàm btnXoa_Click, btnHuy_Click, btnTim_Click, btnTaiLai_Click, btnQuayLai_Click không đổi)
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dgvDanhSachHoaDon.SelectedRows.Count == 0 || string.IsNullOrEmpty(txtMaHD.Text))
@@ -417,7 +414,7 @@ namespace Do_an_NET
             this.Close();
         }
 
-        // Nút "Mở chi tiết HĐ" (button1)
+        // CHỨC NĂNG MỞ CHI TIẾT HÓA ĐƠN: Đã kích hoạt
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaHD.Text))
@@ -427,24 +424,37 @@ namespace Do_an_NET
             }
 
             string maHD = txtMaHD.Text;
-            MessageBox.Show($"Mở Form Quản lý Chi tiết Hóa đơn cho Mã HĐ: {maHD}", "Chức năng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // KÍCH HOẠT LIÊN KẾT: Thay thế MessageBox bằng việc mở Form Chi tiết Hóa đơn
+            try
+            {
+                form_CTHoaDon chiTietForm = new form_CTHoaDon(maHD);
+                chiTietForm.ShowDialog();
+                // Sau khi Form chi tiết đóng, tải lại dữ liệu Hóa đơn chính (nếu có thay đổi tổng tiền)
+                LoadDataHoaDon();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi mở Form Chi tiết Hóa đơn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        // Nút "Tìm khách" (btnTimkhach)
+        // Nút "Tìm khách" (btnTimkhach) - Giữ nguyên
         private void btnTimkhach_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Mở Form tìm kiếm Khách hàng.", "Chức năng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Mở Form tìm kiếm Khách hàng (Chưa triển khai).", "Chức năng", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Nút "Thêm khách" (btnThemkhach)
+        // Nút "Thêm khách" (btnThemkhach) - Giữ nguyên
         private void btnThemkhach_Click(object sender, EventArgs e)
         {
-            // Mở Form Quản lý Khách hàng (cf11c8.png)
-            MessageBox.Show("Mở Form Quản lý Khách hàng để thêm mới.", "Chức năng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Mở Form Quản lý Khách hàng
+            MessageBox.Show("Mở Form Quản lý Khách hàng để thêm mới (Chưa triển khai).", "Chức năng", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
         // =======================================================
-        // SỰ KIỆN DATAGRIDVIEW
+        // SỰ KIỆN DATAGRIDVIEW (Đã loại bỏ CS0121)
         // =======================================================
 
         private void dgvDanhSachHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -471,7 +481,7 @@ namespace Do_an_NET
 
                 SetEditMode(false);
                 btnXoa.Enabled = true;
-                button1.Enabled = true;
+
             }
         }
     }
