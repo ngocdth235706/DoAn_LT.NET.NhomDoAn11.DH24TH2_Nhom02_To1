@@ -188,6 +188,7 @@
             btnQuayLai.TabIndex = 59;
             btnQuayLai.Text = "Quay lại";
             btnQuayLai.UseVisualStyleBackColor = false;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
             // groupBoxDanhSachXeMay
             // 
@@ -210,6 +211,8 @@
             dgvDanhSachXe.RowHeadersWidth = 62;
             dgvDanhSachXe.Size = new Size(994, 197);
             dgvDanhSachXe.TabIndex = 1;
+            dgvDanhSachXe.CellClick += dgvDanhSachXe_CellClick;
+            this.dgvDanhSachXe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachXe_CellClick);
             // 
             // btnHuy
             // 
@@ -221,6 +224,7 @@
             btnHuy.TabIndex = 58;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnXoa
             // 
@@ -232,6 +236,7 @@
             btnXoa.TabIndex = 57;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnCapNhat
             // 
@@ -243,6 +248,7 @@
             btnCapNhat.TabIndex = 56;
             btnCapNhat.Text = "Cập nhật";
             btnCapNhat.UseVisualStyleBackColor = false;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnLuu
             // 
@@ -254,6 +260,7 @@
             btnLuu.TabIndex = 55;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThem
             // 
@@ -265,6 +272,7 @@
             btnThem.TabIndex = 54;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // lblQUANLYXEMAY
             // 
@@ -297,6 +305,7 @@
             btnTaiLai.TabIndex = 51;
             btnTaiLai.Text = "Tải Lại";
             btnTaiLai.UseVisualStyleBackColor = false;
+            this.btnTaiLai.Click += new System.EventHandler(this.btnTaiLai_Click);
             // 
             // btnTim
             // 
@@ -308,6 +317,7 @@
             btnTim.TabIndex = 50;
             btnTim.Text = "Tìm";
             btnTim.UseVisualStyleBackColor = false;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtTimKiem
             // 

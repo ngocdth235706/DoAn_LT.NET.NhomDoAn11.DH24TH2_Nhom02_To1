@@ -11,9 +11,9 @@ namespace Do_an_NET
     public partial class form_XeMay : Form
     {
         private bool isAddingNew = false;
-        private readonly string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
+        private readonly string connectionString = "Server=localhost;Database=QLCuaHangXeMay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
 
-        
+
         public string SelectedMaXe { get; private set; } = "";
 
         public form_XeMay()
@@ -26,7 +26,7 @@ namespace Do_an_NET
         // ================= Load dữ liệu =================
         public void LoadData(string keyword = "")
         {
-            string sqlQuery = "SELECT MaXe, TenXe, HangXe, MauXe, GiaXe, SoLuong, CreatedAt FROM xemay";
+            string sqlQuery = "SELECT MaXe, TenXe, HangXe, MauXe, GiaXe, SoLuong, CreatedAt FROM XeMay";
             if (!string.IsNullOrEmpty(keyword))
             {
                 sqlQuery += " WHERE TenXe LIKE @Keyword OR MaXe LIKE @Keyword OR HangXe LIKE @Keyword";
@@ -53,7 +53,7 @@ namespace Do_an_NET
 
         public void LoadMauXeData()
         {
-            string sql = "SELECT DISTINCT MauXe FROM xemay WHERE MauXe IS NOT NULL AND MauXe != '' ORDER BY MauXe ASC";
+            string sql = "SELECT DISTINCT MauXe FROM XeMay WHERE MauXe IS NOT NULL AND MauXe != '' ORDER BY MauXe ASC";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
@@ -187,12 +187,12 @@ namespace Do_an_NET
             string msg;
             if (isAddingNew)
             {
-                sql = "INSERT INTO xemay (MaXe, TenXe, HangXe, MauXe, GiaXe, SoLuong, CreatedAt) VALUES (@MaXe,@TenXe,@HangXe,@MauXe,@GiaXe,@SoLuong,NOW())";
+                sql = "INSERT INTO XeMay (MaXe, TenXe, HangXe, MauXe, GiaXe, SoLuong, CreatedAt) VALUES (@MaXe,@TenXe,@HangXe,@MauXe,@GiaXe,@SoLuong,NOW())";
                 msg = "Thêm mới xe thành công!";
             }
             else
             {
-                sql = "UPDATE xemay SET TenXe=@TenXe,HangXe=@HangXe,MauXe=@MauXe,GiaXe=@GiaXe,SoLuong=@SoLuong WHERE MaXe=@MaXe";
+                sql = "UPDATE XeMay SET TenXe=@TenXe,HangXe=@HangXe,MauXe=@MauXe,GiaXe=@GiaXe,SoLuong=@SoLuong WHERE MaXe=@MaXe";
                 msg = "Cập nhật xe thành công!";
             }
             ExecuteNonQuery(sql, msg);
@@ -220,7 +220,7 @@ namespace Do_an_NET
             }
             if (MessageBox.Show($"Bạn có chắc chắn xóa xe {txtMaXe.Text}?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                string sql = "DELETE FROM xemay WHERE MaXe=@MaXe";
+                string sql = "DELETE FROM XeMay WHERE MaXe=@MaXe";
                 ExecuteNonQuery(sql, "Xóa xe thành công!");
             }
         }
@@ -272,5 +272,9 @@ namespace Do_an_NET
             SetEditMode(false);
         }
 
+        private void dgvDanhSachXe_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
