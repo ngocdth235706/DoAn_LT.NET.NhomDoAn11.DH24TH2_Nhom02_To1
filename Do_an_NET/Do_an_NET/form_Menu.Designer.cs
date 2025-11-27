@@ -59,7 +59,8 @@
             btnQLXeMay.TabIndex = 1;
             btnQLXeMay.Text = "QUẢN LÝ XE MÁY";
             btnQLXeMay.UseVisualStyleBackColor = false;
-            
+            btnQLXeMay.Click += btnQLXeMay_Click;
+
             // 
             // btnQLKhachHang
             // 
@@ -72,7 +73,8 @@
             btnQLKhachHang.TabIndex = 2;
             btnQLKhachHang.Text = "QUẢN LÝ KHÁCH HÀNG";
             btnQLKhachHang.UseVisualStyleBackColor = false;
-            
+            btnQLKhachHang.Click += btnQLKhachHang_Click;
+
             // 
             // btnQLHoaDon
             // 
@@ -85,7 +87,8 @@
             btnQLHoaDon.TabIndex = 3;
             btnQLHoaDon.Text = "QUẢN LÝ HÓA ĐƠN";
             btnQLHoaDon.UseVisualStyleBackColor = false;
-            
+            btnQLHoaDon.Click += btnQLHoaDon_Click;
+
             // 
             // btnQLCTHoaDon
             // 
@@ -98,7 +101,8 @@
             btnQLCTHoaDon.TabIndex = 4;
             btnQLCTHoaDon.Text = "QUẢN LÝ CHI TIẾT HÓA ĐƠN";
             btnQLCTHoaDon.UseVisualStyleBackColor = false;
-            
+            btnQLCTHoaDon.Click += btnQLCTHoaDon_Click;
+
             // 
             // btnThoat
             // 
@@ -111,7 +115,7 @@
             btnThoat.TabIndex = 5;
             btnThoat.Text = "THOÁT";
             btnThoat.UseVisualStyleBackColor = false;
-            
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnQLNV
             // 
@@ -124,7 +128,8 @@
             btnQLNV.TabIndex = 6;
             btnQLNV.Text = "QUẢN LÝ NHÂN VIÊN";
             btnQLNV.UseVisualStyleBackColor = false;
-            
+            btnQLNV.Click += btnQLNV_Click;
+            btnQLNV.Click += btnQLNV_Click;
             // 
             // form_Menu
             // 

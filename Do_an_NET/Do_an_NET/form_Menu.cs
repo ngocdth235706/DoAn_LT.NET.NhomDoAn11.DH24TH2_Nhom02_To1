@@ -37,6 +37,32 @@ namespace Do_an_NET
             newForm.Show();
         }
 
+        private void PhanQuyen()
+        {
+            if (userRole == "nhanvien")
+            {
+                // Ví dụ bạn có nút btnNhanVien:
+                btnQLNV.Enabled = false;
+                btnQLNV.Visible = false;
+
+                // Nếu bạn có ToolStripMenuItem:
+                // menuNhanVien.Enabled = false;
+                // menuNhanVien.Visible = false;
+            }
+        }
+
+
+        private string userRole;
+
+        public form_Menu(string role)
+        {
+            InitializeComponent();
+            userRole = role;
+
+            PhanQuyen();
+        }
+
+
         // Xử lý sự kiện khi click nút Quản Lý Xe Máy
         private void btnQLXeMay_Click(object sender, EventArgs e)
         {
@@ -89,6 +115,20 @@ namespace Do_an_NET
                 Application.Exit();
             }
         }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            if (userRole != "admin")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào chức năng này!", "Cảnh báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            form_NhanVien f = new form_NhanVien();
+            f.ShowDialog();
+        }
+
 
         // Bạn có thể thêm phương thức Load Form nếu cần thiết
         private void form_Menu_Load(object sender, EventArgs e)
