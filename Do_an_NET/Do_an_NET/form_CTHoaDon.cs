@@ -1,10 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Data;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq; 
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace Do_an_NET
 {
@@ -17,7 +18,7 @@ namespace Do_an_NET
         private string maHoaDonHienTai; // Lưu trữ Mã HĐ được truyền vào
 
         // Chuỗi kết nối CSDL
-        private readonly string connectionString = "Server=localhost;Database=qlcuahangxemay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
+        private readonly string connectionString = "Server=localhost;Database=QLCuaHangXeMay;Uid=root;Pwd=DoAn_Python_DH24TH2;";
         public form_CTHoaDon()
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace Do_an_NET
                     cthd.DonGia,
                     cthd.ThanhTien 
                 FROM CTHoaDon cthd
-                JOIN xemay xm ON cthd.MaXe = xm.MaXe
+                JOIN XeMay xm ON cthd.MaXe = xm.MaXe
                 WHERE cthd.MaHD = @MaHD";
 
             if (!string.IsNullOrEmpty(keyword))
@@ -437,6 +438,10 @@ namespace Do_an_NET
 
         private void btnInHD_Click(object sender, EventArgs e)
         {
+            // === THU NHỎ NỀN HÓA ĐƠN Ở ĐÂY ===
+            printDocument.DefaultPageSettings.Margins = new Margins(10, 10, 10, 10);
+            printDocument.DefaultPageSettings.PaperSize = new PaperSize("HoaDonNho", 600, 800);
+
             // 1. Load lại dữ liệu từ DataGridView để in
             DataTable dt = new DataTable();
             dt = (DataTable)dgvDanhSachCTHoaDon.DataSource;
