@@ -56,7 +56,7 @@
             // 
             // txtMatKhau
             // 
-            txtMatKhau.Location = new Point(140, 240);
+            txtMatKhau.Location = new Point(137, 251);
             txtMatKhau.Name = "txtMatKhau";
             txtMatKhau.Size = new Size(350, 31);
             txtMatKhau.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             lblTaiKhoan.AutoSize = true;
             lblTaiKhoan.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTaiKhoan.Location = new Point(140, 131);
+            lblTaiKhoan.Location = new Point(137, 120);
             lblTaiKhoan.Name = "lblTaiKhoan";
             lblTaiKhoan.Size = new Size(129, 26);
             lblTaiKhoan.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             lblMatKhau.AutoSize = true;
             lblMatKhau.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMatKhau.Location = new Point(140, 211);
+            lblMatKhau.Location = new Point(140, 209);
             lblMatKhau.Name = "lblMatKhau";
             lblMatKhau.Size = new Size(126, 26);
             lblMatKhau.TabIndex = 4;
