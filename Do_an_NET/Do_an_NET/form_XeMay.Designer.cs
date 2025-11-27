@@ -2,15 +2,8 @@
 {
     partial class form_XeMay
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,362 +13,364 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            txtTimKiem = new TextBox();
-            btnTim = new Button();
-            btnTaiLai = new Button();
-            txtMaXe = new TextBox();
-            txtTenXe = new TextBox();
-            txtHangXe = new TextBox();
+            groupBoxThongtinxemay = new GroupBox();
             cmbMauXe = new ComboBox();
-            txtGiaXe = new TextBox();
-            txtSoLuong = new TextBox();
-            btnThem = new Button();
-            btnLuu = new Button();
-            btnCapNhat = new Button();
-            btnXoa = new Button();
-            btnHuy = new Button();
-            lblQUANLYXEMAY = new Label();
-            lblMaXe = new Label();
-            lblMauXe = new Label();
-            lblTenXe = new Label();
-            lblGiaXe = new Label();
             lblHangXe = new Label();
             lblSoLuong = new Label();
-            lblTimKiem = new Label();
-            dgvDanhSachXe = new DataGridView();
+            lblTenXe = new Label();
+            lblGiaXe = new Label();
+            lblMaXe = new Label();
+            lblMauXe = new Label();
+            txtSoLuong = new TextBox();
+            txtGiaXe = new TextBox();
+            txtTenXe = new TextBox();
+            txtHangXe = new TextBox();
+            txtMaXe = new TextBox();
+            btnQuayLai = new Button();
             groupBoxDanhSachXeMay = new GroupBox();
-            groupBoxThongTinXeMay = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)dgvDanhSachXe).BeginInit();
+            dgvDanhSachXe = new DataGridView();
+            btnHuy = new Button();
+            btnXoa = new Button();
+            btnCapNhat = new Button();
+            btnLuu = new Button();
+            btnThem = new Button();
+            lblQUANLYXEMAY = new Label();
+            lblTimKiem = new Label();
+            btnTaiLai = new Button();
+            btnTim = new Button();
+            txtTimKiem = new TextBox();
+            groupBoxThongtinxemay.SuspendLayout();
             groupBoxDanhSachXeMay.SuspendLayout();
-            groupBoxThongTinXeMay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachXe).BeginInit();
             SuspendLayout();
             // 
-            // txtTimKiem
+            // groupBoxThongtinxemay
             // 
-            txtTimKiem.Location = new Point(166, 61);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(846, 31);
-            txtTimKiem.TabIndex = 1;
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
-            // 
-            // btnTim
-            // 
-            btnTim.BackColor = Color.PaleTurquoise;
-            btnTim.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTim.Location = new Point(1027, 48);
-            btnTim.Name = "btnTim";
-            btnTim.Size = new Size(141, 47);
-            btnTim.TabIndex = 2;
-            btnTim.Text = "Tìm";
-            btnTim.UseVisualStyleBackColor = false;
-            btnTim.Click += btnTim_Click;
-            // 
-            // btnTaiLai
-            // 
-            btnTaiLai.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTaiLai.Location = new Point(1174, 48);
-            btnTaiLai.Name = "btnTaiLai";
-            btnTaiLai.Size = new Size(141, 47);
-            btnTaiLai.TabIndex = 3;
-            btnTaiLai.Text = "Tải Lại";
-            btnTaiLai.UseVisualStyleBackColor = true;
-            btnTaiLai.Click += btnTaiLai_Click;
-            // 
-            // txtMaXe
-            // 
-            txtMaXe.Location = new Point(139, 29);
-            txtMaXe.Name = "txtMaXe";
-            txtMaXe.Size = new Size(213, 31);
-            txtMaXe.TabIndex = 4;
-            // 
-            // txtTenXe
-            // 
-            txtTenXe.Location = new Point(528, 22);
-            txtTenXe.Name = "txtTenXe";
-            txtTenXe.Size = new Size(213, 31);
-            txtTenXe.TabIndex = 5;
-            // 
-            // txtHangXe
-            // 
-            txtHangXe.Location = new Point(966, 22);
-            txtHangXe.Name = "txtHangXe";
-            txtHangXe.Size = new Size(213, 31);
-            txtHangXe.TabIndex = 6;
+            groupBoxThongtinxemay.Controls.Add(cmbMauXe);
+            groupBoxThongtinxemay.Controls.Add(lblHangXe);
+            groupBoxThongtinxemay.Controls.Add(lblSoLuong);
+            groupBoxThongtinxemay.Controls.Add(lblTenXe);
+            groupBoxThongtinxemay.Controls.Add(lblGiaXe);
+            groupBoxThongtinxemay.Controls.Add(lblMaXe);
+            groupBoxThongtinxemay.Controls.Add(lblMauXe);
+            groupBoxThongtinxemay.Controls.Add(txtSoLuong);
+            groupBoxThongtinxemay.Controls.Add(txtGiaXe);
+            groupBoxThongtinxemay.Controls.Add(txtTenXe);
+            groupBoxThongtinxemay.Controls.Add(txtHangXe);
+            groupBoxThongtinxemay.Controls.Add(txtMaXe);
+            groupBoxThongtinxemay.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBoxThongtinxemay.ForeColor = Color.Black;
+            groupBoxThongtinxemay.Location = new Point(18, 367);
+            groupBoxThongtinxemay.Name = "groupBoxThongtinxemay";
+            groupBoxThongtinxemay.Size = new Size(1019, 134);
+            groupBoxThongtinxemay.TabIndex = 61;
+            groupBoxThongtinxemay.TabStop = false;
+            groupBoxThongtinxemay.Text = "Thông tin xe máy";
             // 
             // cmbMauXe
             // 
             cmbMauXe.FormattingEnabled = true;
-            cmbMauXe.Location = new Point(139, 90);
+            cmbMauXe.Location = new Point(100, 92);
             cmbMauXe.Name = "cmbMauXe";
-            cmbMauXe.Size = new Size(213, 33);
-            cmbMauXe.TabIndex = 7;
-            // 
-            // txtGiaXe
-            // 
-            txtGiaXe.Location = new Point(528, 90);
-            txtGiaXe.Name = "txtGiaXe";
-            txtGiaXe.Size = new Size(213, 31);
-            txtGiaXe.TabIndex = 8;
-            // 
-            // txtSoLuong
-            // 
-            txtSoLuong.Location = new Point(966, 84);
-            txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(213, 31);
-            txtSoLuong.TabIndex = 9;
-            // 
-            // btnThem
-            // 
-            btnThem.BackColor = Color.LightGreen;
-            btnThem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThem.Location = new Point(49, 632);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(222, 58);
-            btnThem.TabIndex = 10;
-            btnThem.Text = "Thêm";
-            btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += btnThem_Click;
-            // 
-            // btnLuu
-            // 
-            btnLuu.BackColor = Color.LightGreen;
-            btnLuu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLuu.Location = new Point(312, 632);
-            btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(222, 58);
-            btnLuu.TabIndex = 11;
-            btnLuu.Text = "Lưu";
-            btnLuu.UseVisualStyleBackColor = false;
-            btnLuu.Click += btnLuu_Click;
-            // 
-            // btnCapNhat
-            // 
-            btnCapNhat.BackColor = Color.LightGreen;
-            btnCapNhat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCapNhat.Location = new Point(571, 632);
-            btnCapNhat.Name = "btnCapNhat";
-            btnCapNhat.Size = new Size(222, 58);
-            btnCapNhat.TabIndex = 12;
-            btnCapNhat.Text = "Cập nhật";
-            btnCapNhat.UseVisualStyleBackColor = false;
-            btnCapNhat.Click += btnCapNhat_Click;
-            // 
-            // btnXoa
-            // 
-            btnXoa.BackColor = Color.HotPink;
-            btnXoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoa.Location = new Point(823, 632);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(222, 58);
-            btnXoa.TabIndex = 13;
-            btnXoa.Text = "Xóa";
-            btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += btnXoa_Click;
-            // 
-            // btnHuy
-            // 
-            btnHuy.BackColor = Color.DarkKhaki;
-            btnHuy.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHuy.Location = new Point(1071, 632);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(222, 58);
-            btnHuy.TabIndex = 14;
-            btnHuy.Text = "Hủy";
-            btnHuy.UseVisualStyleBackColor = false;
-            btnHuy.Click += btnHuy_Click;
-            // 
-            // lblQUANLYXEMAY
-            // 
-            lblQUANLYXEMAY.AutoSize = true;
-            lblQUANLYXEMAY.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQUANLYXEMAY.ForeColor = Color.RoyalBlue;
-            lblQUANLYXEMAY.Location = new Point(540, 9);
-            lblQUANLYXEMAY.Name = "lblQUANLYXEMAY";
-            lblQUANLYXEMAY.Size = new Size(284, 45);
-            lblQUANLYXEMAY.TabIndex = 15;
-            lblQUANLYXEMAY.Text = "QUẢN LÝ XE MÁY";
-            // 
-            // lblMaXe
-            // 
-            lblMaXe.AutoSize = true;
-            lblMaXe.ForeColor = Color.Black;
-            lblMaXe.Location = new Point(43, 35);
-            lblMaXe.Name = "lblMaXe";
-            lblMaXe.Size = new Size(69, 25);
-            lblMaXe.TabIndex = 16;
-            lblMaXe.Text = "Mã xe:";
-            // 
-            // lblMauXe
-            // 
-            lblMauXe.AutoSize = true;
-            lblMauXe.ForeColor = Color.Black;
-            lblMauXe.Location = new Point(43, 93);
-            lblMauXe.Name = "lblMauXe";
-            lblMauXe.Size = new Size(85, 25);
-            lblMauXe.TabIndex = 17;
-            lblMauXe.Text = "Màu xe: ";
-            // 
-            // lblTenXe
-            // 
-            lblTenXe.AutoSize = true;
-            lblTenXe.ForeColor = Color.Black;
-            lblTenXe.Location = new Point(449, 22);
-            lblTenXe.Name = "lblTenXe";
-            lblTenXe.Size = new Size(72, 25);
-            lblTenXe.TabIndex = 18;
-            lblTenXe.Text = "Tên xe:";
-            // 
-            // lblGiaXe
-            // 
-            lblGiaXe.AutoSize = true;
-            lblGiaXe.ForeColor = Color.Black;
-            lblGiaXe.Location = new Point(449, 90);
-            lblGiaXe.Name = "lblGiaXe";
-            lblGiaXe.Size = new Size(70, 25);
-            lblGiaXe.TabIndex = 19;
-            lblGiaXe.Text = "Giá xe:";
+            cmbMauXe.Size = new Size(191, 34);
+            cmbMauXe.TabIndex = 46;
             // 
             // lblHangXe
             // 
             lblHangXe.AutoSize = true;
+            lblHangXe.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHangXe.ForeColor = Color.Black;
-            lblHangXe.Location = new Point(852, 22);
+            lblHangXe.Location = new Point(651, 37);
             lblHangXe.Name = "lblHangXe";
-            lblHangXe.Size = new Size(88, 25);
-            lblHangXe.TabIndex = 20;
-            lblHangXe.Text = "Hãng xe:";
+            lblHangXe.Size = new Size(111, 26);
+            lblHangXe.TabIndex = 45;
+            lblHangXe.Text = "Hãng xe :";
             // 
             // lblSoLuong
             // 
             lblSoLuong.AutoSize = true;
+            lblSoLuong.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSoLuong.ForeColor = Color.Black;
-            lblSoLuong.Location = new Point(852, 87);
+            lblSoLuong.Location = new Point(651, 95);
             lblSoLuong.Name = "lblSoLuong";
-            lblSoLuong.Size = new Size(93, 25);
-            lblSoLuong.TabIndex = 21;
-            lblSoLuong.Text = "Số lượng:";
+            lblSoLuong.Size = new Size(116, 26);
+            lblSoLuong.TabIndex = 44;
+            lblSoLuong.Text = "Số lượng :";
             // 
-            // lblTimKiem
+            // lblTenXe
             // 
-            lblTimKiem.AutoSize = true;
-            lblTimKiem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTimKiem.Location = new Point(72, 70);
-            lblTimKiem.Name = "lblTimKiem";
-            lblTimKiem.Size = new Size(95, 25);
-            lblTimKiem.TabIndex = 22;
-            lblTimKiem.Text = "Tìm kiếm:";
+            lblTenXe.AutoSize = true;
+            lblTenXe.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTenXe.ForeColor = Color.Black;
+            lblTenXe.Location = new Point(317, 37);
+            lblTenXe.Name = "lblTenXe";
+            lblTenXe.Size = new Size(94, 26);
+            lblTenXe.TabIndex = 41;
+            lblTenXe.Text = "Tên xe :";
+            // 
+            // lblGiaXe
+            // 
+            lblGiaXe.AutoSize = true;
+            lblGiaXe.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGiaXe.ForeColor = Color.Black;
+            lblGiaXe.Location = new Point(317, 95);
+            lblGiaXe.Name = "lblGiaXe";
+            lblGiaXe.Size = new Size(92, 26);
+            lblGiaXe.TabIndex = 40;
+            lblGiaXe.Text = "Giá xe :";
+            // 
+            // lblMaXe
+            // 
+            lblMaXe.AutoSize = true;
+            lblMaXe.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMaXe.ForeColor = Color.Black;
+            lblMaXe.Location = new Point(6, 37);
+            lblMaXe.Name = "lblMaXe";
+            lblMaXe.Size = new Size(90, 26);
+            lblMaXe.TabIndex = 39;
+            lblMaXe.Text = "Mã xe :";
+            // 
+            // lblMauXe
+            // 
+            lblMauXe.AutoSize = true;
+            lblMauXe.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMauXe.ForeColor = Color.Black;
+            lblMauXe.Location = new Point(6, 95);
+            lblMauXe.Name = "lblMauXe";
+            lblMauXe.Size = new Size(103, 26);
+            lblMauXe.TabIndex = 38;
+            lblMauXe.Text = "Màu xe :";
+            // 
+            // txtSoLuong
+            // 
+            txtSoLuong.Location = new Point(749, 86);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(213, 35);
+            txtSoLuong.TabIndex = 30;
+            // 
+            // txtGiaXe
+            // 
+            txtGiaXe.Location = new Point(398, 86);
+            txtGiaXe.Name = "txtGiaXe";
+            txtGiaXe.Size = new Size(213, 35);
+            txtGiaXe.TabIndex = 29;
+            // 
+            // txtTenXe
+            // 
+            txtTenXe.Location = new Point(398, 28);
+            txtTenXe.Name = "txtTenXe";
+            txtTenXe.Size = new Size(213, 35);
+            txtTenXe.TabIndex = 28;
+            // 
+            // txtHangXe
+            // 
+            txtHangXe.Location = new Point(749, 28);
+            txtHangXe.Name = "txtHangXe";
+            txtHangXe.Size = new Size(213, 35);
+            txtHangXe.TabIndex = 27;
+            // 
+            // txtMaXe
+            // 
+            txtMaXe.Location = new Point(91, 34);
+            txtMaXe.Name = "txtMaXe";
+            txtMaXe.Size = new Size(172, 35);
+            txtMaXe.TabIndex = 25;
+            // 
+            // btnQuayLai
+            // 
+            btnQuayLai.BackColor = Color.RoyalBlue;
+            btnQuayLai.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnQuayLai.Location = new Point(871, 535);
+            btnQuayLai.Name = "btnQuayLai";
+            btnQuayLai.Size = new Size(153, 58);
+            btnQuayLai.TabIndex = 59;
+            btnQuayLai.Text = "Quay lại";
+            btnQuayLai.UseVisualStyleBackColor = false;
+            // 
+            // groupBoxDanhSachXeMay
+            // 
+            groupBoxDanhSachXeMay.Controls.Add(dgvDanhSachXe);
+            groupBoxDanhSachXeMay.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBoxDanhSachXeMay.ForeColor = Color.Black;
+            groupBoxDanhSachXeMay.Location = new Point(18, 110);
+            groupBoxDanhSachXeMay.Name = "groupBoxDanhSachXeMay";
+            groupBoxDanhSachXeMay.Size = new Size(1006, 237);
+            groupBoxDanhSachXeMay.TabIndex = 60;
+            groupBoxDanhSachXeMay.TabStop = false;
+            groupBoxDanhSachXeMay.Text = "Danh sách xe máy";
             // 
             // dgvDanhSachXe
             // 
             dgvDanhSachXe.BackgroundColor = SystemColors.ButtonHighlight;
             dgvDanhSachXe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDanhSachXe.Location = new Point(7, 28);
+            dgvDanhSachXe.Location = new Point(6, 34);
             dgvDanhSachXe.Name = "dgvDanhSachXe";
             dgvDanhSachXe.RowHeadersWidth = 62;
-            dgvDanhSachXe.Size = new Size(1296, 318);
-            dgvDanhSachXe.TabIndex = 0;
-            dgvDanhSachXe.CellClick += dgvDanhSachXe_CellClick;
-            dgvDanhSachXe.CellContentClick += dgvDanhSachXe_CellContentClick;
+            dgvDanhSachXe.Size = new Size(994, 197);
+            dgvDanhSachXe.TabIndex = 1;
             // 
-            // groupBoxDanhSachXeMay
+            // btnHuy
             // 
-            groupBoxDanhSachXeMay.BackColor = Color.LemonChiffon;
-            groupBoxDanhSachXeMay.Controls.Add(dgvDanhSachXe);
-            groupBoxDanhSachXeMay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBoxDanhSachXeMay.ForeColor = Color.MediumBlue;
-            groupBoxDanhSachXeMay.Location = new Point(12, 101);
-            groupBoxDanhSachXeMay.Name = "groupBoxDanhSachXeMay";
-            groupBoxDanhSachXeMay.Size = new Size(1309, 352);
-            groupBoxDanhSachXeMay.TabIndex = 23;
-            groupBoxDanhSachXeMay.TabStop = false;
-            groupBoxDanhSachXeMay.Text = "Danh sách xe máy";
+            btnHuy.BackColor = Color.MediumSeaGreen;
+            btnHuy.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHuy.Location = new Point(702, 535);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(153, 58);
+            btnHuy.TabIndex = 58;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = false;
             // 
-            // groupBoxThongTinXeMay
+            // btnXoa
             // 
-            groupBoxThongTinXeMay.Controls.Add(lblSoLuong);
-            groupBoxThongTinXeMay.Controls.Add(lblHangXe);
-            groupBoxThongTinXeMay.Controls.Add(lblGiaXe);
-            groupBoxThongTinXeMay.Controls.Add(lblTenXe);
-            groupBoxThongTinXeMay.Controls.Add(lblMauXe);
-            groupBoxThongTinXeMay.Controls.Add(lblMaXe);
-            groupBoxThongTinXeMay.Controls.Add(txtSoLuong);
-            groupBoxThongTinXeMay.Controls.Add(txtGiaXe);
-            groupBoxThongTinXeMay.Controls.Add(cmbMauXe);
-            groupBoxThongTinXeMay.Controls.Add(txtHangXe);
-            groupBoxThongTinXeMay.Controls.Add(txtTenXe);
-            groupBoxThongTinXeMay.Controls.Add(txtMaXe);
-            groupBoxThongTinXeMay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBoxThongTinXeMay.ForeColor = Color.MediumBlue;
-            groupBoxThongTinXeMay.Location = new Point(12, 475);
-            groupBoxThongTinXeMay.Name = "groupBoxThongTinXeMay";
-            groupBoxThongTinXeMay.Size = new Size(1309, 137);
-            groupBoxThongTinXeMay.TabIndex = 24;
-            groupBoxThongTinXeMay.TabStop = false;
-            groupBoxThongTinXeMay.Text = "Thông tin xe máy";
-            groupBoxThongTinXeMay.Enter += groupBox1_Enter;
+            btnXoa.BackColor = Color.Crimson;
+            btnXoa.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoa.Location = new Point(532, 535);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(153, 58);
+            btnXoa.TabIndex = 57;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = false;
+            // 
+            // btnCapNhat
+            // 
+            btnCapNhat.BackColor = Color.MediumSeaGreen;
+            btnCapNhat.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCapNhat.Location = new Point(358, 535);
+            btnCapNhat.Name = "btnCapNhat";
+            btnCapNhat.Size = new Size(153, 58);
+            btnCapNhat.TabIndex = 56;
+            btnCapNhat.Text = "Cập nhật";
+            btnCapNhat.UseVisualStyleBackColor = false;
+            // 
+            // btnLuu
+            // 
+            btnLuu.BackColor = Color.SpringGreen;
+            btnLuu.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuu.Location = new Point(184, 535);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(153, 58);
+            btnLuu.TabIndex = 55;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = false;
+            // 
+            // btnThem
+            // 
+            btnThem.BackColor = Color.MediumSeaGreen;
+            btnThem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.Location = new Point(12, 535);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(153, 58);
+            btnThem.TabIndex = 54;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = false;
+            // 
+            // lblQUANLYXEMAY
+            // 
+            lblQUANLYXEMAY.AutoSize = true;
+            lblQUANLYXEMAY.Font = new Font("Times New Roman", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblQUANLYXEMAY.ForeColor = Color.MidnightBlue;
+            lblQUANLYXEMAY.Location = new Point(309, 9);
+            lblQUANLYXEMAY.Name = "lblQUANLYXEMAY";
+            lblQUANLYXEMAY.Size = new Size(376, 45);
+            lblQUANLYXEMAY.TabIndex = 53;
+            lblQUANLYXEMAY.Text = "QUẢN LÝ XE MÁY";
+            // 
+            // lblTimKiem
+            // 
+            lblTimKiem.AutoSize = true;
+            lblTimKiem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTimKiem.Location = new Point(25, 78);
+            lblTimKiem.Name = "lblTimKiem";
+            lblTimKiem.Size = new Size(117, 26);
+            lblTimKiem.TabIndex = 52;
+            lblTimKiem.Text = "Tìm kiếm:";
+            // 
+            // btnTaiLai
+            // 
+            btnTaiLai.BackColor = Color.MediumSeaGreen;
+            btnTaiLai.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTaiLai.Location = new Point(871, 57);
+            btnTaiLai.Name = "btnTaiLai";
+            btnTaiLai.Size = new Size(141, 47);
+            btnTaiLai.TabIndex = 51;
+            btnTaiLai.Text = "Tải Lại";
+            btnTaiLai.UseVisualStyleBackColor = false;
+            // 
+            // btnTim
+            // 
+            btnTim.BackColor = Color.RoyalBlue;
+            btnTim.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTim.Location = new Point(724, 57);
+            btnTim.Name = "btnTim";
+            btnTim.Size = new Size(141, 47);
+            btnTim.TabIndex = 50;
+            btnTim.Text = "Tìm";
+            btnTim.UseVisualStyleBackColor = false;
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Location = new Point(154, 73);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(564, 31);
+            txtTimKiem.TabIndex = 49;
             // 
             // form_XeMay
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LemonChiffon;
-            ClientSize = new Size(1333, 732);
-            Controls.Add(groupBoxThongTinXeMay);
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.LightGray;
+            ClientSize = new Size(1346, 715);
+            Controls.Add(groupBoxThongtinxemay);
+            Controls.Add(btnQuayLai);
             Controls.Add(groupBoxDanhSachXeMay);
-            Controls.Add(lblTimKiem);
-            Controls.Add(lblQUANLYXEMAY);
             Controls.Add(btnHuy);
             Controls.Add(btnXoa);
             Controls.Add(btnCapNhat);
             Controls.Add(btnLuu);
             Controls.Add(btnThem);
+            Controls.Add(lblQUANLYXEMAY);
+            Controls.Add(lblTimKiem);
             Controls.Add(btnTaiLai);
             Controls.Add(btnTim);
             Controls.Add(txtTimKiem);
             Name = "form_XeMay";
-            Text = "Quản Lý Xe Máy";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Quản lý Xe Máy";
             Load += form_XeMay_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvDanhSachXe).EndInit();
+            groupBoxThongtinxemay.ResumeLayout(false);
+            groupBoxThongtinxemay.PerformLayout();
             groupBoxDanhSachXeMay.ResumeLayout(false);
-            groupBoxThongTinXeMay.ResumeLayout(false);
-            groupBoxThongTinXeMay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachXe).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-
-        #endregion
-        private TextBox txtTimKiem;
-        private Button btnTim;
-        private Button btnTaiLai;
-        private TextBox txtMaXe;
-        private TextBox txtTenXe;
-        private TextBox txtHangXe;
-        private ComboBox cmbMauXe;
-        private TextBox txtGiaXe;
-        private TextBox txtSoLuong;
-        private Button btnThem;
-        private Button btnLuu;
-        private Button btnCapNhat;
-        private Button btnXoa;
-        private Button btnHuy;
-        private Label lblQUANLYXEMAY;
-        private Label lblMaXe;
-        private Label lblMauXe;
-        private Label lblTenXe;
-        private Label lblGiaXe;
+        private GroupBox groupBoxThongtinxemay;
         private Label lblHangXe;
         private Label lblSoLuong;
-        private Label lblTimKiem;
-        private DataGridView dgvDanhSachXe;
+        private Label lblTenXe;
+        private Label lblGiaXe;
+        private Label lblMaXe;
+        private Label lblMauXe;
+        private TextBox txtSoLuong;
+        private TextBox txtGiaXe;
+        private TextBox txtTenXe;
+        private TextBox txtHangXe;
+        private TextBox txtMaXe;
+        private Button btnQuayLai;
         private GroupBox groupBoxDanhSachXeMay;
-        private GroupBox groupBoxThongTinXeMay;
+        private DataGridView dgvDanhSachXe;
+        private Button btnHuy;
+        private Button btnXoa;
+        private Button btnCapNhat;
+        private Button btnLuu;
+        private Button btnThem;
+        private Label lblQUANLYXEMAY;
+        private Label lblTimKiem;
+        private Button btnTaiLai;
+        private Button btnTim;
+        private TextBox txtTimKiem;
+        private ComboBox cmbMauXe;
+
     }
 }

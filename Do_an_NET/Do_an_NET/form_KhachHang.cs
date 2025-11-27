@@ -292,5 +292,21 @@ namespace Do_an_NET
                 btnXoa.Enabled = true;
             }
         }
+        private void dgvDanhSachKhachHang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDanhSachKhachHang.Rows[e.RowIndex];
+
+                SelectedMaKH = row.Cells["MaKH"].Value?.ToString();
+                SelectedTenKH = row.Cells["TenKH"].Value?.ToString();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+        public int FormState { get; set; } = 0; // 0 = bình thường, 1 = Thêm mới
+        public string SelectedMaKH { get; private set; }
+        public string SelectedTenKH { get; private set; }
     }
 }

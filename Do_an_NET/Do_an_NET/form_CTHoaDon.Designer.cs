@@ -60,11 +60,11 @@
             // lblQUANLYCHITIETHOADON
             // 
             lblQUANLYCHITIETHOADON.AutoSize = true;
-            lblQUANLYCHITIETHOADON.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblQUANLYCHITIETHOADON.ForeColor = Color.RoyalBlue;
-            lblQUANLYCHITIETHOADON.Location = new Point(496, 34);
+            lblQUANLYCHITIETHOADON.Font = new Font("Times New Roman", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblQUANLYCHITIETHOADON.ForeColor = Color.MidnightBlue;
+            lblQUANLYCHITIETHOADON.Location = new Point(404, 29);
             lblQUANLYCHITIETHOADON.Name = "lblQUANLYCHITIETHOADON";
-            lblQUANLYCHITIETHOADON.Size = new Size(459, 45);
+            lblQUANLYCHITIETHOADON.Size = new Size(593, 45);
             lblQUANLYCHITIETHOADON.TabIndex = 25;
             lblQUANLYCHITIETHOADON.Text = "QUẢN LÝ CHI TIẾT HÓA ĐƠN";
             // 
@@ -78,18 +78,18 @@
             // lblTimKiem
             // 
             lblTimKiem.AutoSize = true;
-            lblTimKiem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTimKiem.Location = new Point(79, 113);
+            lblTimKiem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTimKiem.Location = new Point(57, 112);
             lblTimKiem.Name = "lblTimKiem";
-            lblTimKiem.Size = new Size(95, 25);
+            lblTimKiem.Size = new Size(117, 26);
             lblTimKiem.TabIndex = 27;
             lblTimKiem.Text = "Tìm kiếm:";
             // 
             // btnTim
             // 
-            btnTim.BackColor = Color.PaleTurquoise;
-            btnTim.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTim.Location = new Point(1032, 96);
+            btnTim.BackColor = Color.MediumSeaGreen;
+            btnTim.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTim.Location = new Point(1032, 107);
             btnTim.Name = "btnTim";
             btnTim.Size = new Size(141, 47);
             btnTim.TabIndex = 28;
@@ -99,70 +99,71 @@
             // 
             // btnTaiLai
             // 
-            btnTaiLai.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTaiLai.Location = new Point(1179, 91);
+            btnTaiLai.BackColor = Color.RoyalBlue;
+            btnTaiLai.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTaiLai.Location = new Point(1179, 107);
             btnTaiLai.Name = "btnTaiLai";
             btnTaiLai.Size = new Size(141, 47);
             btnTaiLai.TabIndex = 29;
             btnTaiLai.Text = "Tải Lại";
-            btnTaiLai.UseVisualStyleBackColor = true;
+            btnTaiLai.UseVisualStyleBackColor = false;
             btnTaiLai.Click += btnTaiLai_Click;
             // 
             // dgvDanhSachCTHoaDon
             // 
             dgvDanhSachCTHoaDon.BackgroundColor = SystemColors.ButtonHighlight;
             dgvDanhSachCTHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDanhSachCTHoaDon.Location = new Point(23, 27);
+            dgvDanhSachCTHoaDon.Location = new Point(23, 34);
             dgvDanhSachCTHoaDon.Name = "dgvDanhSachCTHoaDon";
             dgvDanhSachCTHoaDon.RowHeadersWidth = 62;
-            dgvDanhSachCTHoaDon.Size = new Size(1296, 318);
+            dgvDanhSachCTHoaDon.Size = new Size(1296, 311);
             dgvDanhSachCTHoaDon.TabIndex = 30;
             dgvDanhSachCTHoaDon.CellClick += dgvDanhSachCTHoaDon_CellClick;
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Location = new Point(897, 37);
+            txtSoLuong.Location = new Point(897, 31);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(213, 31);
+            txtSoLuong.Size = new Size(213, 35);
             txtSoLuong.TabIndex = 31;
             txtSoLuong.TextChanged += txtSoLuong_TextChanged;
             // 
             // txtThanhTien
             // 
-            txtThanhTien.Location = new Point(509, 80);
+            txtThanhTien.Location = new Point(509, 88);
             txtThanhTien.Name = "txtThanhTien";
             txtThanhTien.ReadOnly = true;
-            txtThanhTien.Size = new Size(213, 31);
+            txtThanhTien.Size = new Size(213, 35);
             txtThanhTien.TabIndex = 32;
             // 
             // txtMaXe
             // 
-            txtMaXe.Location = new Point(509, 34);
+            txtMaXe.Location = new Point(509, 31);
             txtMaXe.Name = "txtMaXe";
-            txtMaXe.Size = new Size(213, 31);
+            txtMaXe.Size = new Size(213, 35);
             txtMaXe.TabIndex = 33;
             // 
             // txtDonGia
             // 
-            txtDonGia.Location = new Point(109, 77);
+            txtDonGia.Location = new Point(124, 88);
             txtDonGia.Name = "txtDonGia";
-            txtDonGia.Size = new Size(213, 31);
+            txtDonGia.Size = new Size(213, 35);
             txtDonGia.TabIndex = 34;
             txtDonGia.TextChanged += txtDonGia_TextChanged;
             // 
             // txtMaHD
             // 
-            txtMaHD.Location = new Point(109, 31);
+            txtMaHD.Location = new Point(124, 30);
             txtMaHD.Name = "txtMaHD";
             txtMaHD.ReadOnly = true;
-            txtMaHD.Size = new Size(213, 31);
+            txtMaHD.Size = new Size(213, 35);
             txtMaHD.TabIndex = 35;
             // 
             // btnInHD
             // 
-            btnInHD.BackColor = Color.LightGreen;
-            btnInHD.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInHD.Location = new Point(753, 684);
+            btnInHD.BackColor = Color.MediumSeaGreen;
+            btnInHD.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInHD.Location = new Point(728, 684);
             btnInHD.Name = "btnInHD";
             btnInHD.Size = new Size(153, 58);
             btnInHD.TabIndex = 38;
@@ -172,9 +173,9 @@
             // 
             // btnLuu
             // 
-            btnLuu.BackColor = Color.LightGreen;
-            btnLuu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLuu.Location = new Point(294, 684);
+            btnLuu.BackColor = Color.SpringGreen;
+            btnLuu.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuu.Location = new Point(272, 684);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(153, 58);
             btnLuu.TabIndex = 40;
@@ -184,8 +185,8 @@
             // 
             // btnThem
             // 
-            btnThem.BackColor = Color.LightGreen;
-            btnThem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.BackColor = Color.MediumSeaGreen;
+            btnThem.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThem.Location = new Point(52, 684);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(153, 58);
@@ -197,63 +198,63 @@
             // lblSoLuong
             // 
             lblSoLuong.AutoSize = true;
-            lblSoLuong.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSoLuong.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSoLuong.ForeColor = Color.Black;
-            lblSoLuong.Location = new Point(793, 40);
+            lblSoLuong.Location = new Point(775, 43);
             lblSoLuong.Name = "lblSoLuong";
-            lblSoLuong.Size = new Size(98, 25);
+            lblSoLuong.Size = new Size(116, 26);
             lblSoLuong.TabIndex = 42;
             lblSoLuong.Text = "Số lượng :";
             // 
             // lblThanhTien
             // 
             lblThanhTien.AutoSize = true;
-            lblThanhTien.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblThanhTien.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblThanhTien.ForeColor = Color.Black;
-            lblThanhTien.Location = new Point(389, 86);
+            lblThanhTien.Location = new Point(366, 97);
             lblThanhTien.Name = "lblThanhTien";
-            lblThanhTien.Size = new Size(114, 25);
+            lblThanhTien.Size = new Size(137, 26);
             lblThanhTien.TabIndex = 43;
             lblThanhTien.Text = "Thành tiền :";
             // 
             // lblDonGia
             // 
             lblDonGia.AutoSize = true;
-            lblDonGia.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDonGia.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDonGia.ForeColor = Color.Black;
-            lblDonGia.Location = new Point(15, 83);
+            lblDonGia.Location = new Point(12, 97);
             lblDonGia.Name = "lblDonGia";
-            lblDonGia.Size = new Size(88, 25);
+            lblDonGia.Size = new Size(106, 26);
             lblDonGia.TabIndex = 44;
             lblDonGia.Text = "Đơn giá :";
             // 
             // lblMaXe
             // 
             lblMaXe.AutoSize = true;
-            lblMaXe.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMaXe.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMaXe.ForeColor = Color.Black;
-            lblMaXe.Location = new Point(389, 40);
+            lblMaXe.Location = new Point(366, 37);
             lblMaXe.Name = "lblMaXe";
-            lblMaXe.Size = new Size(74, 25);
+            lblMaXe.Size = new Size(90, 26);
             lblMaXe.TabIndex = 45;
             lblMaXe.Text = "Mã xe :";
             // 
             // lblMaHD
             // 
             lblMaHD.AutoSize = true;
-            lblMaHD.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMaHD.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMaHD.ForeColor = Color.Black;
-            lblMaHD.Location = new Point(15, 37);
+            lblMaHD.Location = new Point(12, 40);
             lblMaHD.Name = "lblMaHD";
-            lblMaHD.Size = new Size(81, 25);
+            lblMaHD.Size = new Size(103, 26);
             lblMaHD.TabIndex = 46;
             lblMaHD.Text = "Mã HĐ :";
             // 
             // groupBoxDanhsachCTHoaDon
             // 
             groupBoxDanhsachCTHoaDon.Controls.Add(dgvDanhSachCTHoaDon);
-            groupBoxDanhsachCTHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBoxDanhsachCTHoaDon.ForeColor = Color.MediumBlue;
+            groupBoxDanhsachCTHoaDon.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBoxDanhsachCTHoaDon.ForeColor = Color.Black;
             groupBoxDanhsachCTHoaDon.Location = new Point(15, 149);
             groupBoxDanhsachCTHoaDon.Name = "groupBoxDanhsachCTHoaDon";
             groupBoxDanhsachCTHoaDon.Size = new Size(1347, 362);
@@ -273,20 +274,20 @@
             groupBoxThongTinCTHoaDon.Controls.Add(txtMaXe);
             groupBoxThongTinCTHoaDon.Controls.Add(txtThanhTien);
             groupBoxThongTinCTHoaDon.Controls.Add(txtSoLuong);
-            groupBoxThongTinCTHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBoxThongTinCTHoaDon.ForeColor = Color.MediumBlue;
-            groupBoxThongTinCTHoaDon.Location = new Point(15, 534);
+            groupBoxThongTinCTHoaDon.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBoxThongTinCTHoaDon.ForeColor = Color.Black;
+            groupBoxThongTinCTHoaDon.Location = new Point(15, 517);
             groupBoxThongTinCTHoaDon.Name = "groupBoxThongTinCTHoaDon";
-            groupBoxThongTinCTHoaDon.Size = new Size(1355, 127);
+            groupBoxThongTinCTHoaDon.Size = new Size(1355, 144);
             groupBoxThongTinCTHoaDon.TabIndex = 48;
             groupBoxThongTinCTHoaDon.TabStop = false;
             groupBoxThongTinCTHoaDon.Text = "Thông tin chi tiết hóa đơn";
             // 
             // btnXoa
             // 
-            btnXoa.BackColor = Color.HotPink;
-            btnXoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoa.Location = new Point(537, 684);
+            btnXoa.BackColor = Color.Crimson;
+            btnXoa.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoa.Location = new Point(497, 684);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(153, 58);
             btnXoa.TabIndex = 47;
@@ -296,8 +297,8 @@
             // 
             // btnQuayLai
             // 
-            btnQuayLai.BackColor = Color.LightGreen;
-            btnQuayLai.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnQuayLai.BackColor = Color.RoyalBlue;
+            btnQuayLai.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnQuayLai.Location = new Point(1167, 684);
             btnQuayLai.Name = "btnQuayLai";
             btnQuayLai.Size = new Size(153, 58);
@@ -308,8 +309,8 @@
             // 
             // btnHuy
             // 
-            btnHuy.BackColor = Color.DarkKhaki;
-            btnHuy.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHuy.BackColor = Color.MediumSeaGreen;
+            btnHuy.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHuy.Location = new Point(955, 684);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(153, 58);
@@ -322,7 +323,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LemonChiffon;
+            AutoSize = true;
+            BackColor = Color.LightGray;
             ClientSize = new Size(1383, 754);
             Controls.Add(btnHuy);
             Controls.Add(btnQuayLai);
@@ -338,6 +340,7 @@
             Controls.Add(txtTimKiem);
             Controls.Add(lblQUANLYCHITIETHOADON);
             Name = "form_CTHoaDon";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "form_CTHoaDon";
             Load += form_CTHoaDon_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachCTHoaDon).EndInit();

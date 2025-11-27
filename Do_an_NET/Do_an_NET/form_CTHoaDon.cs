@@ -346,14 +346,14 @@ namespace Do_an_NET
                     return;
                 }
 
-                sql = "INSERT INTO chitiethoadon (MaHD, MaXe, SoLuong, DonGia, ThanhTien) " +
+                sql = "INSERT INTO CTHoaDon (MaHD, MaXe, SoLuong, DonGia, ThanhTien) " +
                       "VALUES (@MaHD, @MaXe, @SoLuong, @DonGia, @ThanhTien)";
                 message = "Thêm chi tiết hóa đơn thành công!";
             }
             else
             {
                 // Thao tác Cập nhật
-                sql = "UPDATE chitiethoadon SET SoLuong = @SoLuong, DonGia = @DonGia, ThanhTien = @ThanhTien " +
+                sql = "UPDATE CTHoaDon SET SoLuong = @SoLuong, DonGia = @DonGia, ThanhTien = @ThanhTien " +
                       "WHERE MaHD = @MaHD AND MaXe = @MaXe";
                 message = "Cập nhật chi tiết hóa đơn thành công!";
             }
@@ -378,7 +378,7 @@ namespace Do_an_NET
 
             if (MessageBox.Show($"Bạn có chắc chắn muốn xóa chi tiết HĐ cho xe {txtMaXe.Text}?", "Xác nhận Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string sql = "DELETE FROM chitiethoadon WHERE MaHD = @MaHD AND MaXe = @MaXe";
+                string sql = "DELETE FROM CTHoaDon WHERE MaHD = @MaHD AND MaXe = @MaXe";
                 if (ExecuteNonQuery(sql, "Xóa chi tiết hóa đơn thành công!"))
                 {
                     ClearTextBoxes();
