@@ -14,13 +14,13 @@ namespace Do_an_NET // Thay thế bằng Namespace của bạn
             // Dòng quan trọng: Form nào được khởi động đầu tiên
             // Nếu bạn muốn chạy form_HoaDon đầu tiên:
             // Application.Run(new form_HoaDon());
-            Application.Run(new form_XeMay());
+            // Application.Run(new form_XeMay());
             // Application.Run(new form_NhanVien());
             // Application.Run(new form_Menu());
             // Application.Run(new form_DangNhap());
             // Application.Run(new form_KhachHang());
             // Hoặc, nếu bạn có form Đăng nhập/Menu chính:
-            // Application.Run(new form_DangNhap());
+            Application.Run(new form_DangNhap());
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Do_an_NET
 {
     public partial class form_CTHoaDon : Form
     {
+        private System.Drawing.Printing.PrintDocument printDocument = new System.Drawing.Printing.PrintDocument();
+        private DataTable dataToPrint;
         // Biến trạng thái
         private bool isAddingNew = false;
         private string maHoaDonHienTai; // Lưu trữ Mã HĐ được truyền vào
@@ -408,11 +410,6 @@ namespace Do_an_NET
             LoadData(keyword);
         }
 
-        private void btnInHD_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Chức năng In Hóa Đơn chưa được triển khai.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -437,5 +434,110 @@ namespace Do_an_NET
                 CalculateThanhTien();
             }
         }
+
+        private void btnInHD_Click(object sender, EventArgs e)
+        {
+            // 1. Load lại dữ liệu từ DataGridView để in
+            DataTable dt = new DataTable();
+            dt = (DataTable)dgvDanhSachCTHoaDon.DataSource;
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            dataToPrint = dt;
+
+            // 2. Gắn sự kiện PrintPage
+            printDocument.PrintPage -= PrintDocument_PrintPage;
+            printDocument.PrintPage += PrintDocument_PrintPage;
+
+            // 3. Mở xem trước bản in
+            PrintPreviewDialog preview = new PrintPreviewDialog();
+            preview.Document = printDocument;
+            preview.Width = 1200;
+            preview.Height = 800;
+            preview.ShowDialog();
+        }
+
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int y = 50;
+            int left = 50;
+
+            Font fontTitle = new Font("Arial", 18, FontStyle.Bold);
+            Font fontHeader = new Font("Arial", 12, FontStyle.Bold);
+            Font fontContent = new Font("Arial", 11);
+
+            // =====================
+            // 1. In tiêu đề
+            // =====================
+            e.Graphics.DrawString("HÓA ĐƠN BÁN XE MÁY", fontTitle, Brushes.Black, left, y);
+            y += 50;
+
+            // =====================
+            // 2. Thông tin chung
+            // =====================
+            e.Graphics.DrawString($"Mã Hóa Đơn: {txtMaHD.Text}", fontHeader, Brushes.Black, left, y);
+            y += 30;
+            e.Graphics.DrawString($"Ngày In: {DateTime.Now:dd/MM/yyyy HH:mm}", fontHeader, Brushes.Black, left, y);
+            y += 40;
+
+            // =====================
+            // 3. Header bảng chi tiết
+            // =====================
+            e.Graphics.DrawString("Mã Xe", fontHeader, Brushes.Black, left, y);
+            e.Graphics.DrawString("Tên Xe", fontHeader, Brushes.Black, left + 120, y);
+            e.Graphics.DrawString("SL", fontHeader, Brushes.Black, left + 350, y);
+            e.Graphics.DrawString("Đơn Giá", fontHeader, Brushes.Black, left + 420, y);
+            e.Graphics.DrawString("Thành Tiền", fontHeader, Brushes.Black, left + 560, y);
+
+            y += 30;
+            e.Graphics.DrawLine(Pens.Black, left, y, left + 700, y);
+            y += 10;
+
+            // =====================
+            // 4. In từng dòng chi tiết
+            // =====================
+            decimal tongTien = 0;
+
+            foreach (DataRow row in dataToPrint.Rows)
+            {
+                e.Graphics.DrawString(row["MaXe"].ToString(), fontContent, Brushes.Black, left, y);
+                e.Graphics.DrawString(row["TenXe"].ToString(), fontContent, Brushes.Black, left + 120, y);
+                e.Graphics.DrawString(row["SoLuong"].ToString(), fontContent, Brushes.Black, left + 350, y);
+
+                e.Graphics.DrawString(
+                    Convert.ToDecimal(row["DonGia"]).ToString("N0"),
+                    fontContent, Brushes.Black,
+                    left + 420, y
+                );
+
+                e.Graphics.DrawString(
+                    Convert.ToDecimal(row["ThanhTien"]).ToString("N0"),
+                    fontContent, Brushes.Black,
+                    left + 560, y
+                );
+
+                tongTien += Convert.ToDecimal(row["ThanhTien"]);
+                y += 25;
+            }
+
+            y += 20;
+            e.Graphics.DrawLine(Pens.Black, left, y, left + 700, y);
+            y += 20;
+
+            // =====================
+            // 5. Tổng tiền
+            // =====================
+            e.Graphics.DrawString($"TỔNG TIỀN: {tongTien:N0} VND", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, left, y);
+        }
+
+
+
+
+
+
     }
 }
