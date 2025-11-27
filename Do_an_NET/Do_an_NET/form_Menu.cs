@@ -18,7 +18,7 @@ namespace Do_an_NET
             // Đính kèm các sự kiện Click vào các Button đã được khai báo
             btnQLXeMay.Click += btnQLXeMay_Click;
             btnQLNV.Click += btnQLNV_Click;
-            btnQLKhachHang.Click += btnQLKhachHnag_Click;
+            btnQLKhachHang.Click += btnQLKhachHang_Click;
             btnQLHoaDon.Click += btnQLHoaDon_Click;
             btnQLCTHoaDon.Click += btnQLCTHoaDon_Click;
             btnThoat.Click += btnThoat_Click;
@@ -52,7 +52,7 @@ namespace Do_an_NET
         }
 
         // Xử lý sự kiện khi click nút Quản Lý Khách Hàng
-        private void btnQLKhachHnag_Click(object sender, EventArgs e)
+        private void btnQLKhachHang_Click(object sender, EventArgs e)
         {
             // Lưu ý: Đảm bảo class form_KhachHang đã tồn tại trong project
             OpenNewForm(new form_KhachHang());
