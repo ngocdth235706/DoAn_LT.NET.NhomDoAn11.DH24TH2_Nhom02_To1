@@ -320,7 +320,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.LightGray;
-            ClientSize = new Size(1346, 715);
+            ClientSize = new Size(1050, 608);
             Controls.Add(groupBoxThongtinxemay);
             Controls.Add(btnQuayLai);
             Controls.Add(groupBoxDanhSachXeMay);
